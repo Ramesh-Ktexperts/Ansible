@@ -1,0 +1,5 @@
+---
+ - hosts: Ktexperts-Group
+   become: yes
+   roles:
+   - ktexperts-Role
