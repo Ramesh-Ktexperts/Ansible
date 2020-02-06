@@ -1,0 +1,12 @@
+--- # My Variables YAML playbook(Target,Variables and Tasks)
+- hosts: Ktexperts-Group      
+  user: kt-ansible
+  become: yes              
+  connection: ssh
+  vars:
+    pkgname: httpd
+  tasks:
+  # - name: Install the package "httpd" on Amazon Linux Server 
+    # action: yum name='{{pkgname}}' state=installed
+    - name: Remove the package "httpd" on Amazon Linux Server
+      action: yum name='{{pkgname}}' state=removed

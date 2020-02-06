@@ -1,0 +1,9 @@
+--- # My tasks YAML playbook (Target and Tasks)
+- hosts: Ktexperts-Group
+  user: kt-ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install HTTPD on Amazon Linux
+      action: yum name=httpd state=installed
+

@@ -1,0 +1,14 @@
+--- # My Handlers YAML playbook (Target,Tasks and Handlers)
+- hosts: Ktexperts-Group
+  user: kt-ansible
+  become: yes
+  connection: ssh
+  tasks:
+  # - name: Install the package "httpd" on Amazon Linux Server
+   #  action: yum name=httpd state=installed
+   #  notify: start the service "httpd"   #is called only if the action is ran & successful #
+ # handlers:
+  # - name: start the service "httpd"   #has to match the notify name. Otherwise throws error #
+   #  action: service name=httpd state=started
+    - name: Remove the package "httpd" on Amazon Linux Server
+      action: yum name=httpd state=absent

@@ -1,0 +1,19 @@
+
+--- # My Handlers YAML playbook (Target,Tasks and Handlers)
+- hosts: Ktexperts-Group
+  user: kt-ansible
+  become: yes
+  connection: ssh
+  tasks:
+   - name: Install the package "httpd" on Amazon Linux Server
+     action: yum name=httpd state=installed
+   - name: Create a file "ktexperts" on Amazon Linux Server
+     action: file name=ktexperts state=touch
+   - name: Create a directory "ktexperts-directory" on Amazon Linux Server
+     action: file name=ktexperts-directory state=directory
+   - name: Create a user "Ramesh" on Amazon Linux Server
+     action: user name=Ramesh
+   - name: Create a group "Ktexperts" on Amazon Linux Server
+     action: group name=ktexperts
+   - name: Add user "Ramesh" to group "ktexperts" on Amazon Linux Server
+     action: user name=Ramesh groups=ktexperts

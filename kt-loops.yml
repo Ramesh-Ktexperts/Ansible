@@ -1,0 +1,31 @@
+--- #My  Loop Playbook (Target,Tasks with loops)
+- hosts: Ktexperts-Group
+  user: kt-ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: add a list of files
+      file: name='{{ item }}' state=touch
+      with_items:
+        - ktexperts-1
+        - ktexperts-2
+        - ktexperts-3
+    - name: add a list of directories
+      file: name='{{ item }}' state=directory
+      with_items:
+        - ktexperts-dir-1
+        - ktexperts-dir-2
+        - ktexperts-dir-3
+    - name: add a list of users
+      user: name='{{ item }}' state=present
+      with_items:
+        - Vinod
+        - Ajay
+        - Ramesh
+    - name: add a list of groups
+      group: name='{{ item }}' state=present
+      with_items:
+        - Ktexperts-1
+        - Ktexperts-2
+        - Ktexperts-3
+
